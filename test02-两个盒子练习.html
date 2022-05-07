@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset    = "UTF-8" />
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge" />
+    <meta name       = "viewport" content        = "width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #small {
+        width           : 100px;
+        height          : 100px;
+        background-color: green;
+        position        : absolute;
+      }
+      #big {
+        width           : 300px;
+        height          : 300px;
+        background-color: blueviolet;
+        margin          : 200px auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id = "small"></div>
+    <div id = "big"></div>
+
+    <script>
+      function $(id) {
+        return document.querySelector(id);
+      }
+      var small = $("#small");
+      var big   = $("#big");
+
+      small.onmousedown = function (e) {
+            e                    = e || window.event;
+        var disX                 = e.clientX - this.offsetLeft;
+        var disY                 = e.clientY - this.offsetTop;
+            document.onmousemove = function (e) {
+          e = e || window.event;
+          // console.log( '123' );
+          var left    = e.clientX - disX;
+          var top     = e.clientY - disY;
+          var minLeft = 0;
+          var maxLeft = 
+            (document.documentElement.clientWidth ||
+              document.body.clientWidth) - document.offsetWidth;
+          if (left < minLeft) {
+            left = minLeft;
+          }
+          if (left > maxLeft) {
+            left = maxLeft;
+          }
+          small.style.left = left + "px";
+          small.style.top  = top + "px";
+
+          // 左侧
+          var smallL = small.offsetLeft + small.offsetWidth;
+          var bigL   = big.offsetLeft;
+
+          // 上
+          var smallT = small.offsetTop + small.offsetHeight;
+          var bigT   = big.offsetTop;
+
+          // 右
+          var smallR = small.offsetLeft;
+          var bigR   = big.offsetLeft + big.offsetWidth;
+
+          // 下
+          var smallB = small.offsetTop;
+          var bigB   = big.offsetTop + big.offsetHeight;
+
+          // 排除没有接触都的情况
+
+          if (
+            smallL < bigL ||
+            smallT < bigT ||
+            bigR < smallR ||
+            bigB < smallB
+          ) {
+            big.style.backgroundColor = "";
+          } else {
+            big.style.backgroundColor = "yellow";
+          }
+        };
+        document.onmouseup = function (e) {
+          // 清除鼠标按下和抬起事件
+          document.onmousemove = document.onmouseup = null;
+        };
+      };
+    </script>
+  </body>
+</html>

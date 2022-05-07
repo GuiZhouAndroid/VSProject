@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">王一博呀呀呀！！！</div>
+
+    <script>
+      // 封装一个获取元素的函数
+      function $(id) {
+        return document.querySelector(id);
+      }
+      var box = $("#box");
+      // console.log( box );
+
+      box.onmousedown = function (e) {
+        e = e || window.event;
+        var disX = e.clientX - this.offsetLeft;
+        var disY = e.clientY - this.offsetTop;
+        document.onmousemove = function (e) {
+          e = e || window.event;
+          // console.log( '123' );
+          var left = e.clientX - disX;
+          var top = e.clientY - disY;
+          var minLeft = 0;
+          var maxLeft =
+            (document.documentElement.clientWidth ||
+              document.body.clientWidth) - document.offsetWidth;
+          if (left < minLeft) {
+            left = minLeft;
+          }
+          if (left > maxLeft) {
+            left = maxLeft;
+          }
+          box.style.left = left + "px";
+          box.style.top = top + "px";
+
+          // 阻止默认状态---阻止div中的文字本拖拽
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+        };
+        document.onmouseup = function (e) {
+          // 清除鼠标按下和抬起事件
+          document.onmousemove = document.onmouseup = null;
+        };
+      };
+      
+    </script>
+  </body>
+</html>
