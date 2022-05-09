@@ -1,9 +1,9 @@
 <!--
  * @Author: ZSAndroid
  * @Date: 2022-05-07 10:58:42
- * @LastEditors: 张松
- * @LastEditTime: 2022-05-07 16:09:36
- * @FilePath: \VSProject\test01-小方块移动练习.html
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-09 15:17:18
+ * @FilePath: \VSProject\JavaScript\test01-小方块移动练习.html
  * @Description: 小方块移动练习
  * @email：1210762604@qq.com
  * @github：https://github.com/GuiZhouAndroid
@@ -32,42 +32,41 @@
     <script>
       // 封装一个获取元素的函数
       function $(id) {
-        return document.querySelector(id);
+        return document.querySelector(id)
       }
-      var box = $("#box");
+      var box = $('#box')
       // console.log( box );
 
       box.onmousedown = function (e) {
-        e = e || window.event;
-        var disX = e.clientX - this.offsetLeft;
-        var disY = e.clientY - this.offsetTop;
+        e = e || window.event
+        var disX = e.clientX - this.offsetLeft
+        var disY = e.clientY - this.offsetTop
         document.onmousemove = function (e) {
-          e = e || window.event;
+          e = e || window.event
           // console.log( '123' );
-          var left = e.clientX - disX;
-          var top = e.clientY - disY;
-          var minLeft = 0;
+          var left = e.clientX - disX
+          var top = e.clientY - disY
+          var minLeft = 0
           var maxLeft =
             (document.documentElement.clientWidth ||
-              document.body.clientWidth) - document.offsetWidth;
+              document.body.clientWidth) - document.offsetWidth
           if (left < minLeft) {
-            left = minLeft;
+            left = minLeft
           }
           if (left > maxLeft) {
-            left = maxLeft;
+            left = maxLeft
           }
-          box.style.left = left + "px";
-          box.style.top = top + "px";
+          box.style.left = left + 'px'
+          box.style.top = top + 'px'
 
           // 阻止默认状态---阻止div中的文字本拖拽
-          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-        };
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false)
+        }
         document.onmouseup = function (e) {
           // 清除鼠标按下和抬起事件
-          document.onmousemove = document.onmouseup = null;
-        };
-      };
-      
+          document.onmousemove = document.onmouseup = null
+        }
+      }
     </script>
   </body>
 </html>

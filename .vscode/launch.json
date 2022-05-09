@@ -1,0 +1,18 @@
+{
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Debugger", //给调试器起一个名字，这个可以自己随便写，就是调试器启动以后最下面显示的名字
+      "type": "chrome", //debugger工具的类型
+      "request": "launch", //调试工具的启动方式，目前官网提供两种，launch和attach
+      "sourceMaps": false,
+      "file": "${file}",
+      "webRoot": "${workspaceFolder}",
+      "runtimeExecutable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+    }
+  ]
+}

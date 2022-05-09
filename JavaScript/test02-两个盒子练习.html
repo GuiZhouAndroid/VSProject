@@ -1,9 +1,9 @@
 <!--
  * @Author: ZSAndroid
  * @Date: 2022-05-07 10:58:41
- * @LastEditors: 张松
- * @LastEditTime: 2022-05-07 16:11:20
- * @FilePath: \VSProject\test02-两个盒子练习.html
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-09 15:19:58
+ * @FilePath: \VSProject\JavaScript\test02-两个盒子练习.html
  * @Description: 两个盒子练习
  * @email：1210762604@qq.com
  * @github：https://github.com/GuiZhouAndroid
@@ -11,76 +11,76 @@
  * @信息源自：by 2022年 ZSAndroid,保留所有权利. 
 -->
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
   <head>
-    <meta charset    = "UTF-8" />
-    <meta http-equiv = "X-UA-Compatible" content = "IE=edge" />
-    <meta name       = "viewport" content        = "width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
       #small {
-        width           : 100px;
-        height          : 100px;
+        width: 100px;
+        height: 100px;
         background-color: green;
-        position        : absolute;
+        position: absolute;
       }
       #big {
-        width           : 300px;
-        height          : 300px;
+        width: 300px;
+        height: 300px;
         background-color: blueviolet;
-        margin          : 200px auto;
+        margin: 200px auto;
       }
     </style>
   </head>
 
   <body>
-    <div id = "small"></div>
-    <div id = "big"></div>
+    <div id="small"></div>
+    <div id="big"></div>
 
     <script>
       function $(id) {
-        return document.querySelector(id);
+        return document.querySelector(id)
       }
-      var small = $("#small");
-      var big   = $("#big");
+      var small = $('#small')
+      var big = $('#big')
 
       small.onmousedown = function (e) {
-            e                    = e || window.event;
-        var disX                 = e.clientX - this.offsetLeft;
-        var disY                 = e.clientY - this.offsetTop;
-            document.onmousemove = function (e) {
-          e = e || window.event;
+        e = e || window.event
+        var disX = e.clientX - this.offsetLeft
+        var disY = e.clientY - this.offsetTop
+        document.onmousemove = function (e) {
+          e = e || window.event
           // console.log( '123' );
-          var left    = e.clientX - disX;
-          var top     = e.clientY - disY;
-          var minLeft = 0;
-          var maxLeft = 
+          var left = e.clientX - disX
+          var top = e.clientY - disY
+          var minLeft = 0
+          var maxLeft =
             (document.documentElement.clientWidth ||
-              document.body.clientWidth) - document.offsetWidth;
+              document.body.clientWidth) - document.offsetWidth
           if (left < minLeft) {
-            left = minLeft;
+            left = minLeft
           }
           if (left > maxLeft) {
-            left = maxLeft;
+            left = maxLeft
           }
-          small.style.left = left + "px";
-          small.style.top  = top + "px";
+          small.style.left = left + 'px'
+          small.style.top = top + 'px'
 
           // 左侧
-          var smallL = small.offsetLeft + small.offsetWidth;
-          var bigL   = big.offsetLeft;
+          var smallL = small.offsetLeft + small.offsetWidth
+          var bigL = big.offsetLeft
 
           // 上
-          var smallT = small.offsetTop + small.offsetHeight;
-          var bigT   = big.offsetTop;
+          var smallT = small.offsetTop + small.offsetHeight
+          var bigT = big.offsetTop
 
           // 右
-          var smallR = small.offsetLeft;
-          var bigR   = big.offsetLeft + big.offsetWidth;
+          var smallR = small.offsetLeft
+          var bigR = big.offsetLeft + big.offsetWidth
 
           // 下
-          var smallB = small.offsetTop;
-          var bigB   = big.offsetTop + big.offsetHeight;
+          var smallB = small.offsetTop
+          var bigB = big.offsetTop + big.offsetHeight
 
           // 排除没有接触都的情况
 
@@ -90,16 +90,16 @@
             bigR < smallR ||
             bigB < smallB
           ) {
-            big.style.backgroundColor = "";
+            big.style.backgroundColor = ''
           } else {
-            big.style.backgroundColor = "yellow";
+            big.style.backgroundColor = 'yellow'
           }
-        };
+        }
         document.onmouseup = function (e) {
           // 清除鼠标按下和抬起事件
-          document.onmousemove = document.onmouseup = null;
-        };
-      };
+          document.onmousemove = document.onmouseup = null
+        }
+      }
     </script>
   </body>
 </html>
