@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+      }
+      h1 {
+        font-size: 40px;
+        color: lightcoral;
+        text-align: center;
+        padding: 70px;
+      }
+      .show {
+        font-size: 40px;
+        color: lightcyan;
+        text-align: center;
+        font-weight: bold;
+      }
+      .box {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        color: lightcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>中奖名单</h1>
+    <div class="show">按回车开始/停止</div>
+    <div class="box">
+      选择抽奖人数：
+      <select class="select">
+        <option value="1">1人</option>
+        <option value="2">2人</option>
+        <option value="3">3人</option>
+        <option value="4">4人</option>
+        <option value="5">5人</option>
+      </select>
+    </div>
+
+    <script src="./utils.js"></script>
+    <script>
+      var data = [
+        '王乐',
+        '廖秀丽',
+        '江雄',
+        '戴璞岳',
+        '周海波',
+        '宗明禄',
+        '童浩智',
+        '王翔',
+        '林风良',
+        '周雪丰',
+        '习成',
+        '林子丹',
+        '唐惠',
+        '侯仕晨',
+        '杨兴友',
+        '刘丽丽',
+        '郎鑫培',
+        '周浩宇',
+        '赖忠伟',
+        '毛娟丽',
+        '洪俊涛',
+        '张丹',
+        '杨杰',
+        '陈宇超',
+        '康翼鸶',
+        '张智超',
+        '薛玲',
+        '郭首宇',
+        '戴素雅',
+        '代海艳',
+        '杨昭伦',
+        '王琨',
+        '史冰彤',
+        '徐荣霞',
+        '杨婷婷',
+        '曹慧',
+        '刘思成',
+        '余尚武',
+        '苏淑媚',
+        '邹盛',
+        '张贵兰',
+        '余俏婷',
+        '刘传鹏',
+        '李润鸿',
+        '刘聪',
+        '邓亚军',
+        '刘义',
+        '袁从龙',
+        '陈章',
+        '贾俊',
+        '徐佳浩',
+        '莫千慧',
+        '孙亚斌',
+        '何陌沅',
+        '钟路珍',
+        '虞茂龙',
+        '薛瑞丹',
+        '罗伟权',
+        '王顺',
+        '徐奕俊',
+        '刘猛',
+        '蔡佳树',
+        '关雪梅',
+        '张浩',
+        '黄成铭',
+        '陈亿涛',
+        '虞名豪',
+        '蔡嘉辉',
+        '郑肖肖',
+        '史伟利',
+        '周嘉琪',
+        '胡圣龙',
+        '刘春林',
+        '熊伟丰',
+        '韩海城',
+        '吴冰茵',
+        '赵中宝',
+        '赵中宝',
+      ]
+      console.log(data.length) // 78  0-77
+
+      var show = $('.show')
+      var select = $('.select')
+      var flag = true // 标记 开始/停止
+      var num = 1 // 抽奖人数，默认1人
+      var timer = null // 计时器编号
+
+      // 选择抽奖人数
+      select.onchange = function () {
+        num = this.value
+      }
+
+      document.onkeydown = function (e) {
+        var key = e.keyCode || e.which
+        if (key !== 13) {
+          return // 不是回车键停止执行
+        }
+
+        if (flag) {
+          // 开始抽奖
+          flag = false
+          timer = setInterval(function () {
+            // 随机抽取num个人
+            var list = [] // 存储中奖名单
+            var userName = ''
+            for (var i = 0; i < num; i++) {
+              // var index = randomInt(0,77);// 一个随机数
+              // console.log( data[index] );// 一个随机名单
+              // list.push(data[index]);
+              do {
+                var index = randomInt(0, 77) // 一个随机数
+                userName = data[index]
+              } while (has(list, userName))
+              list.push(userName)
+            }
+            show.innerText = list
+          }, 50)
+        } else {
+          // 停止抽奖
+          flag = true
+          clearInterval(timer)
+        }
+      }
+    </script>
+  </body>
+</html>

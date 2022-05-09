@@ -1,0 +1,56 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-09 16:07:24
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-09 17:46:13
+ * @FilePath: \VSProject\HTML\表格单元格合并.html
+ * @Description: 表格单元格合并
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表格单元格合并</title>
+  </head>
+  <body>
+    <table align="center" border="1px" style="width: 50%; height: 300px">
+      <!-- 
+        注意事项：row合并向下单元格时，保留上方td 删除下方td，row和col不能跨单元格合并
+        row合并例子：合并6和9单元格，保留6的td，删除9的td
+        col合并例子：合并1、2、3单元格，对删除顺序无要求
+        th标签也是单元格标签,比td多的是居中、加粗
+        使用thead、tbody、tfoot划分表域时，须观察待合并的td之后，合理包裹，避免导致合并效果出错
+      -->
+      <!-- 表头 -->
+      <thead>
+        <tr align="center">
+          <td colspan="3">1</td>
+          <!-- <td>2</td> -->
+          <!-- <td>3</td> -->
+        </tr>
+      </thead>
+      <!-- 表体 -->
+      <tbody>
+        <tr>
+          <td>4</td>
+          <td rowspan="2">5</td>
+        </tr>
+      </tbody>
+      <!-- 表脚 -->
+      <tfoot>
+        <tr>
+          <!-- 居中、加粗 -->
+          <th>7</th>
+          <th>8</th>
+          <!-- <th>9</th> -->
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>
