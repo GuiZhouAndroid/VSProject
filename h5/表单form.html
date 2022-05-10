@@ -1,0 +1,149 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-10 16:02:31
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-10 23:09:44
+ * @FilePath: \VSProject\h5\表单form.html
+ * @Description: 表单form
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表单form</title>
+  </head>
+  <body>
+    <!--
+      form标签作用：收集用户信息，单击提交按钮，将表单数据发送给WEB服务器
+      1个HTML页面可以多个form表单
+      action属性：将用户填入表单的数据提交到所指定的WEB服务器中。例如小猫咪————>Tomcat
+      action属性值：指定WEB服务器地址。例如用户注册请求路径————>http://localhost:8080/api/user/register
+      action属性===等同===<a>超链接标签————>均向后端服务器发送request请求
+    -->
+    <form action="http://localhost:8080/api/user/register">
+      <!--
+        使用<input type ="">标签构建form表单界面
+        重点事项：表单提交按钮必须使用<input type="submit" />当前表单才具备自动提交表单数据的功能
+        使用value属性设置按钮显示的文本信息，submit的value值默认“提交”两个字，可自定义value值
+      -->
+      <!-- 具备自动提交数据能力服务器访问成功：执行request请求；访问失败：“无法访问此网站” -->
+      <input
+        type="submit"
+        value="我是特殊的submit提交按钮哟，具备自动提交数据的能力"
+      />
+      <br />
+      <!-- 仅为普通控件，不具备自动提交数据能力 -->
+      <input
+        type="button"
+        value="我是普通Button按钮呀，不具备自动提交数据能力"
+      />
+      <br />
+      <br />
+      <!--
+        不同的radio单选框name属性值相同，可以视为同一组
+        例如性别男和女，两个name属性值都是sex，只能选择一个
+        单选框最终提交到是value属性值，而不是男 或 女
+        为方便后端业务进行等值比对判断，建议采用int类型来区分
+        默认选中：checked
+        选择单选框，提交到URL中为http://...?sex=1
+      -->
+      <input type="radio" name="sex" value="0" checked />男
+      <input type="radio" name="sex" value="1" />女
+      <br />
+      <br />
+      <!-- 
+        复选框name属性值相同为一组，提交到是value属性值
+        默认选中：checked，选择单选框，提交到URL中为http://...?interest=playGames 
+      -->
+      <input type="checkbox" name="interest" value="eat" />吃饭
+      <input type="checkbox" name="interest" value="sleep" />睡觉
+      <input type="checkbox" name="interest" value="playGames" checked />打游戏
+      <br />
+      <br />
+      <!-- 选择下拉框，提交到URL中为http://...?education=undergraduate，默认选中：selected-->
+      学历
+      <select name="education">
+        <option value="SmallSchool">小学</option>
+        <option value="measure">初中</option>
+        <option value="highSchool">高中</option>
+        <option value="specialty">专科</option>
+        <option value="undergraduate" selected>本科</option>
+      </select>
+      <br />
+      <br />
+      <!--
+        textarea文本域标签：没有value属性，value值只能是用户填入的文本信息
+        设置大小：cols列数，rows行数
+        选择下拉框，提交到URL中为http://...?signature=个性签名填入的文本内容
+      -->
+      个性签名：
+      <textarea name="signature" cols="30" rows="10"></textarea>
+    </form>
+    <br />
+    <!-- 表单请求访问百度 -->
+    <form action="https://www.baidu.com/">
+      <input type="submit" value="百度一下" />
+    </form>
+
+    <!-- 使用form表单构建用户登录布局（此方式布局不整齐——不推荐） -->
+    <form action="http://localhost:8080/api/user/login">
+      用户名：<input type="text" name="username" /><br />
+      密码：<input type="password" name="userpwd" /><br />
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="submit" value="登录" />
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="reset" value="清空" /><br />
+    </form>
+
+    <!--
+      使用table表格 + form表单 完善用户登录布局（此方式布局整齐——推荐）
+      submit属性必须放在form表单内部，放在外部点击submit按钮无效
+      form表单自动提交的数据格式是：action属性值?name=value&name=value
+      【地址栏URL：http://localhost:8080/api/user/login?username=ZSAndroid&userpwd=Root】
+      value为input输入框文本内容，开发中不定义value。因为用户填入的数据在触发submit按钮时自动赋值value并放在URL上
+      若想要某个input标签中数据提交到URL中，传递后端WEB服务器，那么当前input标签必须生命name属性，反之无name属性，则不提交到URL中
+      当name没有声明不自动提交，当value没有声明，此时的value默认值在后端接收时为[String str = "";]而不是[String str = null;]
+      通常情况可以在前端提交前判空处理，避免让后端服务器执行无意义的请求与响应，减少不必要的资源占用，提高系统业务的效率
+      以上是HTTP协议定义GET或Post请求，是必须要遵循的规范，才能采用协议传输数据
+      method属性值默认为get请求，method属性值为get时，会在URL上显示用户表单中自动提交到全部name值和value值（准确来说是Uri）
+      method属性值为post时，不会在URL上显示name值和value值，隐藏放到http请求体中
+      get请求用户获取服务器数据，如果是隐私信息（登录密码、身份证号等），就不采用这种方式
+      get虽然是显示到URL上，但是只负责获取数据，不会改动数据库的信息，因此是安全的
+      而post是提交数据到服务器，是需要修改数据库中表数据，尽管隐藏用户信息，也依旧存在安全问题
+      get和post只是提交显示方式不同，提交到信息都是相同的
+      <a>超链接标签是get请求，也可以通过href属性值，赋值name和value值，实现数据传输。
+      <a>超链接标签缺点：name和value都是固定不变的扩展维护效率极低
+    -->
+
+    <form action="http://localhost:8080/api/user/login" method="get">
+      <table>
+        <tr>
+          <td>用户名：</td>
+          <!-- 有name属性，自动将value值提交至URL上，value可省略，其值为用户填入数据 -->
+          <td><input type="text" name="username" value="ZSAndroid" /></td>
+        </tr>
+        <tr>
+          <td align="center">密码：</td>
+          <!-- 有name属性，自动将value值提交至URL上，value可省略，其值为用户填入数据 -->
+          <td><input type="password" name="userpwd" value="Root" /></td>
+        </tr>
+        <br />
+        <tr align="center">
+          <td colspan="2">
+            <!-- 无name属性，不提交，发起request请求 -->
+            <input type="submit" value="登录" />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- 无name属性，不提交，清空当前表单全部input标签的value值 -->
+            <input type="reset" value="清空" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
