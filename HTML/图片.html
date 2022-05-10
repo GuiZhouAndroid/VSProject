@@ -1,0 +1,41 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-10 14:03:18
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-10 14:15:26
+ * @FilePath: \VSProject\HTML\图片.html
+ * @Description:图片
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图片</title>
+  </head>
+  <body>
+    <!--
+      img是图片标签
+      src是图片的相对路径
+      width是图片的宽度
+      height是图片的高度
+      title是鼠标触碰悬停标题
+      通常情况下：同时设置width和height时，会造成图片像素比例失常，导致图片失帧
+      仅设置width，不设置height时，会自动调节宽高比例显示图片大小（亲测效果仅设置height也同样生效）
+      alt是图片加载失败时，在img标签区域提示失败的文本信息
+    -->
+    <img
+      src="alt属性测试故意写错的图片路径/static/vsbg.png"
+      height="100px"
+      title="我是鼠标触碰悬停标题呀"
+      alt="图片路径加载失败"
+    />
+    <br />
+    <img src="/static/vsbg.png" height="200px" />
+  </body>
+</html>

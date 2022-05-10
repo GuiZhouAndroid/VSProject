@@ -1,0 +1,45 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-10 14:17:40
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-10 14:56:59
+ * @FilePath: \VSProject\HTML\超链接.html
+ * @Description: 超链接
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>超链接</title>
+  </head>
+  <body>
+    <!--
+      href：全称———>hot reference 热引用
+      href的属性值必须是资源路径，可以是互联网资源路径，也可以是本机资源路径
+      <a>超链接特点：（1）有下划线、（2）鼠标悬停指针变为白色小手、（3）支持跳转页面
+        扩展：点击<a>超链接标签和在浏览器地址栏中输入URL功能作用一致。
+          浏览器————请求request———>服务器————>使用<a>超链接标签和键入URL可以实现
+          服务器<————响应response———浏览器
+    -->
+    <a href="https://github.com/">Github</a>
+    <a href="https://www.baidu.com/">百度一下</a>
+
+    <!--
+      图片超链接：点击图片跳转资源路径地址（淘宝首页）
+      target属性值：
+          （1）_blank：新窗口跳转打开、
+          （2）_self：当前窗口跳转打开，默认方式
+          （3）_top：多层嵌套子孙窗口中，孙窗口使用最外层窗口打开，覆盖其它子孙窗口和网页内容，并展示当前孙窗口网页信息
+          （3）_parent：父子嵌套窗口中，孙窗口使用父窗口跳转展示当前孙窗口网页信息，覆盖父窗口和网页内容
+    -->
+    <a href="https://www.taobao.com/" target="_blank"
+      ><img src="/static/taobao.jpeg" height="100px" title="图片超链接"
+    /></a>
+  </body>
+</html>
