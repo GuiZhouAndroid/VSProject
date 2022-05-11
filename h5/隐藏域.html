@@ -1,0 +1,31 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-11 16:43:31
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-11 16:49:45
+ * @FilePath: \VSProject\h5\隐藏域.html
+ * @Description: 隐藏域
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>隐藏域</title>
+  </head>
+  <body>
+    <!--
+      网页不显示type属性值为hidden修饰的input控件，表单提交时自动放入URL中：
+      例如，用户更新个人资料时，自动提交用户的自增ID。————>http://localhost:8080/user/updateInfoById?userId=1
+     -->
+    <form action="http://localhost:8080/user/updateInfoById" method="get">
+      隐藏域<input type="hidden" name="userId" value="1" />
+      <input type="submit" value="查询" />
+    </form>
+  </body>
+</html>

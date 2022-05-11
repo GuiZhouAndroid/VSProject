@@ -1,0 +1,33 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-11 17:03:18
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-11 17:14:44
+ * @FilePath: \VSProject\h5\input只读.html
+ * @Description: input只读
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input只读</title>
+  </head>
+  <body>
+    <!--
+      readonly 和 disabled 作用：都是设置input标签为只读状态
+      readonly 和 disabled 区别：即使都有name和value，readonly只读在submit时能提交键值数据到URL中而disabled忽略不提交
+      URL结果（无删除用户ID）：http://localhost:8080/user/delete?username=%E5%BC%A0%E6%9D%BE
+    -->
+    <form action="http://localhost:8080/user/delete">
+      删除用户ID<input type="text" name="userId" value="1998" disabled />
+      删除用户姓名<input type="text" name="username" value="张松" readonly />
+      <input type="submit" value="确定删除" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-11 17:34:47
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-11 18:19:01
+ * @FilePath: \VSProject\h5\div+span.html
+ * @Description: div+span
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>div+span</title>
+  </head>
+
+  <body>
+    <!--
+      设置盒子模型左上角的坐标x/y轴，定位div图层，完成灵活布局，支持多重嵌套，支持包裹多种元素控件
+      div块级元素：div布局默认占用一行（高度hight自适应，宽度width客户端可视有效区的x轴长度值）
+      span行级元素：span标签不会独占一行，会追加当前行后面，需要换行只能使用独目元素br标签
+      每一个div和span都是单独的区域
+    -->
+    <!-- 不设置width，默认浏览器x轴长度值-->
+    <div id="mydiv1" style="height: 100px; background: red">我是div1</div>
+    <br />
+    <!-- 自动换行：不设置height高度自适应，width为100px-->
+    <div id="mydiv2" style="width: 100px; background: #39ec11">我是div2</div>
+    <br />
+
+    <!-- 第一个span -->
+    <span id="myspan1" style="height: 100px; background: #0dd3d6"
+      >我是div1</span
+    >
+    <input type="text" />
+    <!-- 不自动换行，追加到当前行其它元素(span标签)后面，也可以是其它元素标签 -->
+    <span id="myspan2" style="width: 100px; background: #db0c88">我是div2</span>
+
+    <!-- div布局嵌套图层 -->
+    <br />
+    <div id="one" style="width: 300px; height: 300px; background: #0dd3d6">
+      <div id="two" style="width: 200px; height: 200px; background: #db0c88">
+        <div
+          id="three"
+          style="width: 100px; height: 100px; background: #39ec11"
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-11 16:39:34
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-11 16:56:13
+ * @FilePath: \VSProject\h5\文件控件.html
+ * @Description: 文件控件
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文件控件</title>
+  </head>
+  <body>
+    <!--
+      打开window窗口，选择图片，此文件控件必须搭配form表单使用，submit提交到后端
+      http://localhost:8080/user/file?UserHead=%E9%87%8D%E5%AE%9A%E5%90%91.png
+    -->
+    <form action="http://localhost:8080/user/file" method="post">
+      <input type="file" name="UserHead" multiple="multiple" />
+      <input type="submit" value="上传文件" />
+    </form>
+  </body>
+</html>
