@@ -1,0 +1,257 @@
+/* 初始化 */
+body{
+    margin: 0;
+    padding: 0;
+    font: 12px/1.3 "Microsoft YaHei", Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+}
+
+.clearboth::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* 第一部分--big */
+#big{
+    width: auto;
+    min-width: 1200px;
+    background-color: #EAEAEA;
+    /* border: 1px solid green; */
+}
+
+#big div.md{
+    width: 1200px;
+    margin: 0 auto;
+    height: 30px;
+    font-size: 12px;
+    color: #333;
+    /* border: 1px solid red; */
+}
+div.md-title{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    /* border: 1px solid green; */
+}
+div.md-title a{
+    color: #666666;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+div.md-title a:first-of-type{
+    border-right: 1px solid #B3AEAE;
+}
+div.md-title a:hover,ul.md-list a:hover{
+    color: #E1251B;
+    text-decoration: underline;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+ul.md-list{
+    float: right;
+}
+ul.md-list li{
+    float: left;
+}
+div.md-title a,ul a{
+    text-decoration: none;
+}
+ul.md-list{
+    height: 30px;
+    line-height: 30px;
+    /* border: 1px solid blueviolet; */
+}
+ul.md-list li a{
+    font-size: 12px;
+    color: #666666;
+    padding: 0 10px;
+    border-left: 1px solid #B3AEAE;
+}
+ul.md-list li a.clear{
+    border-left:none ;
+}
+
+/* 第二部分--#mid */
+
+#mid{
+    width: 1200px;
+    margin: 0 auto;
+    /* border: 1px solid green; */
+}
+#mid div#left{
+    float: left;
+    width: 250px;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    /* border: 1px solid red; */
+    font-size: 0;
+}
+#mid div#left img{
+    vertical-align: middle;
+}
+#mid div#right{
+    float: right;
+    height: 110px;
+    line-height: 110px;
+    /* border: 1px solid green; */
+    font-size: 0;
+}
+#mid div#right input{
+    width: 490px;
+    height: 32px;
+    outline: none;
+    font-size: 12px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border: 2px solid #EA4A36;
+    border-right-style: none;
+}
+#mid div#right button{
+    padding: 0;
+    width: 68px;
+    height: 32px;
+    border: 0;
+    font-size: 12px;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #EA4A36;
+}
+
+/* 第三部分---menu */
+#menu {
+    width: 100%;
+    min-width: 1200px;
+    /* border: 1px solid green; */
+    border-bottom: 2px solid #E1251B;
+}
+
+#menu ul#menu-link {
+    width: 1200px;
+    margin: 0 auto;
+
+    /* border: 1px solid red; */
+}
+
+#menu ul#menu-link li {
+    float: left;
+    height: 46px;
+    line-height: 46px;
+    /* border: 1px solid blue; */
+}
+
+#menu ul#menu-link li.first {
+    width: 210px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #E1251B;
+}
+
+#menu ul#menu-link li a {
+    margin: 0 22px;
+    font-size: 16px;
+    color: #333;
+}
+
+#menu ul#menu-link li:hover a {
+    color: lightgreen;
+    text-decoration: underline;
+}
+
+#menu ul#menu-link li a.active{
+    color: lightgreen;
+}
+
+/* 第四部分---head */
+#head {
+    width: 1200px;
+    margin: 0 auto;
+    border: 1px solid red;
+
+}
+
+#head div.menu-left {
+    float: left;
+    position: relative;
+    width: 210px;
+    /* border: 1px solid green; */
+}
+
+
+#head div.right-position {
+    float: left;
+    width: 250px;
+    height: 460px;
+    border: 1px solid green;
+}
+
+/* 左边框--菜单 */
+#head div.menu-left ul.home li h3 {
+    margin: 0;
+    /* width: 210px; */
+    height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    /* border: 1px solid red; */
+
+}
+
+#head div.menu-left ul.home li h3 a {
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+}
+#head div.menu-left{
+    background-color: #FAFAFA;
+}
+#head div.menu-left ul.home li ul.home-s {
+    display: none;
+    position: absolute;
+    width: 740px;
+    /* float: left; */
+    top: -1px;
+    bottom: -1px;
+    left: 210px;
+    padding: 3px 0;
+    background-color: #F7F7F7;
+    border: 1px solid #DDDDDD;
+}
+
+#head div.menu-left ul.home li ul.home-s li.clear {
+    float: left;
+    width: 54px;
+    height: 22px;
+    line-height: 22px;
+    padding: 3px 6px 0 0;
+    text-align: right;
+    font-weight: 700;
+    border-left:none
+}
+
+#head div.menu-left ul.home li ul.home-s li {
+    float: left;
+    height: 14px;
+    line-height: 14px;
+    padding: 8px 8px 0 8px;
+    margin-top: 2px;
+    border-left: 1px solid #ccc;
+}
+#head div.menu-left ul.home li ul.home-s li a{
+    color: #666;
+}
+
+
+#head div.menu-left ul.home li:hover ul.home-s {
+    display: block;
+}
+
+#head div.menu-left ul.home li h3 a:hover{
+    color: #90EE90;
+    text-decoration:underline;
+}
