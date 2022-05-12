@@ -1,0 +1,68 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-12 10:15:54
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-12 10:39:34
+ * @FilePath: \VSProject\h5\CSS内联定义方式.html
+ * @Description: CSS内联定义方式
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS内联定义方式</title>
+  </head>
+  <body>
+    <!--
+			width 宽度样式
+			height 高度样式
+			background-color 背景色样式
+			display 布局样式（none表示隐藏，block表示显示）
+      border-width：边框长度
+      border-color：边框颜色
+      border-style：边框样式，取值范围如下：
+        none：默认值。无边框。不受任何指定的 border-width 值影响
+        hidden：隐藏边框。IE不支持
+        dotted：在MAC平台上IE4+与WINDOWS和UNIX平台上IE5.5+为点线。否则为实线
+        dashed：在MAC平台上IE4+与WINDOWS和UNIX平台上IE5.5+为虚线。否则为实线
+        solid：实线边框
+        double：双线边框。两条单线与其间隔的和等于指定的 border-width 值
+        groove：根据 border-color 的值画3D凹槽
+        ridge：根据 border-color 的值画3D凸槽
+        inset：根据 border-color 的值画3D凹边
+        outset：根据 border-color 的值画3D凸边
+      border的完整版与简约版写法不同，实现效果相同
+		-->
+
+    <!-- border完整版编写 -->
+    <div
+      style="
+        width: 300px;
+        height: 300px;
+        background-color: #e2ad1b;
+        display: block;
+        border-width: 100px;
+        border-style: solid;
+        border-color: red;
+      "
+    ></div>
+    <br />
+    <br />
+    <!-- border简约版编写 -->
+    <div
+      style="
+        width: 300px;
+        height: 300px;
+        background-color: #e2ad1b;
+        display: block;
+        border: 100px solid red;
+      "
+    ></div>
+  </body>
+</html>

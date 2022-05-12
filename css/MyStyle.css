@@ -1,3 +1,25 @@
-body{
-color: rgb(250, 183, 183);
+a {
+  text-decoration: none;
+  font-size: 50px;
+  color: rgb(219, 15, 15);
+}
+ul {
+  list-style-type: none;
+}
+div {
+  width: 500px;
+  height: 500px;
+  background-color: #d8abab;
+  display: block;
+  border: 1px solid #eb1f00;
+  left: 300px;
+  top: 300px;
+  position: absolute; /* 绝对定位 */
+}
+.CustomDivClass {
+  width: 500px;
+  height: 500px;
+  background-color: #d8abab;
+  display: block;
+  border: 1px solid #eb1f00;
 }

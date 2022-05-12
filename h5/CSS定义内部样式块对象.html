@@ -1,0 +1,88 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-12 10:41:39
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-12 12:11:09
+ * @FilePath: \VSProject\h5\CSS定义内部样式块对象.html
+ * @Description: CSS定义内部样式块对象
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS定义内部样式块对象</title>
+    <!-- 在此处定义CSS内部样式快 -->
+    <style type="text/css">
+      /* CSS注释
+
+      ——>语法格式<——
+
+      选择器(选择符){
+        样式名 : 样式值;
+        样式名 : 样式值;
+        样式名 : 样式值;
+      }
+
+      */
+
+      /* id选择器(id选择符) #元素id名{} */
+      #myspan {
+        /*设置元素字体样式，normal默认值=正常的字体、italic=斜体、oblique=倾体*/
+        font-style: italic;
+        color: cornflowerblue; /*设置元素文本颜色*/
+        font-size: 20px; /*设置元素对象字体尺寸*/
+        font-weight: 700; /*设置元素对象文本字体的粗细，normal默认值=正常的字体=400、粗体=700  */
+        /*文本的装饰，none默认值-无装饰、blink=闪烁、underline=下划线、line-through=贯穿线、overline=上划线 */
+        text-decoration: blink;
+      }
+      /* 标签选择器(类型选择符) 元素标签名{} */
+      div {
+        width: 300px;
+        height: 300px;
+        background-color: #e2ad1b;
+        display: block;
+        border: 5px solid red;
+      }
+      /* 类选择器(类选择符) .元素类名{}————>元素引用：class="元素类型"(div引入——> class="CustomDivClass") */
+      .CustomDivClass {
+        width: 500px;
+        height: 500px;
+        background-color: #d8abab;
+        display: block;
+        border: 1px solid #eb1f00;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      多个div和span复用定义的CSS内部样式块
+      作用域：标签选择器 > id选择器
+
+        id选择器：仅支持通过元素标签的id值绑定设置定义的CSS样式(在同个HTML页面中id值是不能重复出现)
+                  可以针对某一元素进行控制————>作用范围较小，灵活+繁琐
+
+        标签选择器：同个HTML页面中相同类型的元素标签都绑定设置生效所定义的CSS样式
+                  全局控制标签，不能实现只对某部分标签生效————>作用范围较大，不灵活+不好控制生效元素
+
+        类选择器：支持跨元素标签绑定设置CSS样式，不同元素标签class属性值相同
+                就能通过内部样式块查询.属性值(.类名){样式名 : 样式值;}————>灵活性高+跨标签控制元素
+
+    -->
+    <!-- 使用id选择器 -->
+    <span id="myspan"> 贵州省</span>
+    <span id="myspan"> 贵阳市</span>
+    <span id="myspan"> 白云区</span>
+    <span id="myspan"> 张松</span>
+    <!-- 使用标签选择器 -->
+    <div></div>
+    <div></div>
+    <!-- 使用类选择器 -->
+    <div class="CustomDivClass"></div>
+  </body>
+</html>
