@@ -1,4 +1,4 @@
-﻿编写HTML的框架：
+编写HTML的框架：
 <!doctype html>
 <html>   #整个HTML编写在里面
 <head>  #整个的HTML的一个头，
