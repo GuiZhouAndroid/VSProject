@@ -1,3 +1,4 @@
+/* 元素选择器：使用HTML标签作为选择器的名称 */
 a {
   text-decoration: none;
   font-size: 50px;
@@ -16,6 +17,23 @@ div {
   top: 300px;
   position: absolute; /* 绝对定位 */
 }
+/*
+    ID选择器：使用自定义名称，以 # 作为前缀，然后通过HTML标签的id属性进行名称匹配
+    以标签的id属性作为样式应用的依据，一对一的关系
+*/
+#myspan {
+  /*设置元素字体样式，normal默认值=正常的字体、italic=斜体、oblique=倾体*/
+  font-style: italic;
+  color: cornflowerblue; /*设置元素文本颜色*/
+  font-size: 20px; /*设置元素对象字体尺寸*/
+  font-weight: 700; /*设置元素对象文本字体的粗细，normal默认值=正常的字体=400、粗体=700  */
+  /*文本的装饰，none默认值-无装饰、blink=闪烁、underline=下划线、line-through=贯穿线、overline=上划线 */
+  text-decoration: blink;
+}
+/*
+    类选择器：使用自定义的名称，以“.”号作为前缀，然后再通过HTML标签的class属性调用类选择器
+    调用时不能添加.号、同时调用多个类选择器时，以“空格”分隔、类选择器名称不能以“数字”开头 
+*/
 .CustomDivClass {
   width: 500px;
   height: 500px;
@@ -23,3 +41,50 @@ div {
   display: block;
   border: 1px solid #eb1f00;
 }
+
+/* 复合选择器：标签选择器和ID选择器合起来使用——>必须同时满足两个条件才能应用样式 */
+p#bbb {
+  color: blue;
+}
+
+/* 复合选择器：标签选择器和类选择器合起来使用——>必须同时满足两个条件才能应用样式 */
+h1.aaa {
+  color: red;
+}
+
+/*
+    组合选择器：将多个具有相同样式的选择器放在一起声明，使用英文逗号“,”隔开
+    表示同时渲染标签h1+p+div+span 与 类名为ccc的元素标签
+*/
+h5,
+p,
+div,
+span,
+.ccc {
+  font-size: 30px;
+  color: dodgerblue;
+}
+
+/* 嵌套选择器：在某个选择器内部再设置选择器，通过空格隔开只有满足层次关系最里层的选择器所对应的标签才会应用样式 */
+/* 后代选择器 */
+div p {
+  color: green;
+  text-decoration: underline;
+}
+
+div h3.ddd {
+  color: red;
+}
+
+/* 子代选择器 */
+div > p {
+  color: green;
+  text-decoration: underline;
+}
+
+/* 毗邻选择器 */
+div + p {
+  color: green;
+  text-decoration: underline;
+}
+/* 属性选择器+伪类选择器参考：https://blog.csdn.net/ak739105231/article/details/91839020 */

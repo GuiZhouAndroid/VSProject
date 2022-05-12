@@ -1,0 +1,63 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-12 14:10:59
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-12 15:03:00
+ * @FilePath: \VSProject\h5\复杂选择器.html
+ * @Description: 复杂选择器
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>复杂选择器</title>
+    <style>
+      @import url('/css/MyStyle.css');
+    </style>
+  </head>
+  <body>
+    <!-- 需求：修饰ID属性为bbb的p标签————>复合选择器：标签选择器和id选择器合起来使用，须同时满足 -->
+    <p id="bbb">我是id为bbb的p标签，修饰我</p>
+    <p>我是没有id的p标签，不修饰我</p>
+
+    <hr />
+    <!-- 需求：只想修饰class属性为aaa的h1标签————>复合选择器：标签选择器和类选择器合起来使用，须同时满足 -->
+    <h1 class="aaa">我是aaa,只修饰我</h1>
+    <h4 class="aaa">我是aaa,不修饰我</h4>
+
+    <hr />
+    <h1>我是单独的h1,没有选择器使用我,所以没有样式</h1>
+
+    <hr />
+    <!-- 给h5、p、div、span标签中的内容字号同时设置为30px、字体颜色为：dodgerblue -->
+    <h5>同时设置的h5</h5>
+    <p>同时设置的P</p>
+    <div>同时设置的DIV</div>
+    <span class="ccc">同时设置的span</span>
+
+    <hr />
+    <!-- 需求：修饰div内部的p标签 -->
+    <div>
+      <p>我是div内部的p标签，需要修饰我呀</p>
+      <h3>我是div内部的h3标签，不需要修饰我</h3>
+    </div>
+    <hr />
+    <div>
+      <h3>
+        <p>div内部的h3内部的p标签</p>
+      </h3>
+    </div>
+    <hr />
+    <!-- 需求：修饰div内部的class为ddd的标签 -->
+    <div>
+      <p>div内部的p</p>
+      <h3 class="ddd">div内部的h3</h3>
+      <p class="ddd">PPPP</p>
+    </div>
+    <h3 class="ddd">h3h3h3</h3>
+  </body>
+</html>
