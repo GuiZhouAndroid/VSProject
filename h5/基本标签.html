@@ -2,8 +2,8 @@
  * @Author: 张松
  * @Date: 2022-05-07 09:50:02
  * @LastEditors: ZSAndroid
- * @LastEditTime: 2022-05-10 14:02:58
- * @FilePath: \VSProject\HTML\基本标签.html
+ * @LastEditTime: 2022-05-12 09:12:57
+ * @FilePath: \VSProject\h5\基本标签.html
  * @Description: 基本标签
  * @email：1210762604@qq.com
  * @github：https://github.com/GuiZhouAndroid/VSProject
@@ -18,6 +18,9 @@
   </head>
 
   <body>
+    <!-- 默认占用一行，从页面右边滑到左边 -->
+    <marquee>我是跑马灯</marquee>
+
     <!-- 段落P标签 -->
     <p>段落标签1</p>
     <p>段落标签2</p>
@@ -38,13 +41,17 @@
       }
     </pre>
 
-    <del>删除字</del>
-    <ins>插入字</ins>
+    <del>删除字1</del><s>删除字2</s> <ins>字体下划线1</ins><u>字体下划线2</u>
     <b>粗体字</b>
     <i>斜体字</i>
+    <big>字体增大</big>
 
     张松<sup>右上角</sup> 张松 <sub>右下角</sub>
     <br />
-    <font color="red" size="14"> font标签</font>
+    <font color="red" size="14"> font标签</font><br />
+
+    <!-- 贴音乐 -->
+    <embed src="/static/不要说话.mp3" width=100% height=10% type=audio/mpeg
+    align=center autostart=false>
   </body>
 </html>
