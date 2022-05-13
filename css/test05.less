@@ -1,0 +1,17 @@
+// mixin混合(宏)
+// 不适用小括号会被编译到css
+.mixin {
+  width: 100px;
+  height: 100px;
+  border: 5px solid green;
+}
+// 使用小括号不会被编译到css
+.mixin1() {
+  width: 200px;
+  height: 200px;
+  border: 5px solid purple;
+}
+
+.box1 {
+  .mixin();
+}
