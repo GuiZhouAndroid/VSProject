@@ -1,0 +1,67 @@
+// // Less语法——>变量的定义
+
+// //资源路径
+// @url:("https://www.baidu.com/");
+
+// //颜色
+// @mainColor: rgba(0, 150, 250, 0.788);
+
+// //数值
+// @zero:10px;
+// @MyDivWidth:300px;
+// @MyDivHight:300px;
+
+// //标签
+// @myH1 : h1;
+
+// //选择器类名
+// @choice:myClass;
+
+// //元素属性名
+// @w:width;
+// @h:height;
+
+// //元素属性值
+// @divColor: rgb(241, 133, 0);
+// @MyMainColor: @mainColor;
+
+// .@{choice}{
+//   border:1px solid @divColor;
+//   @w: @MyDivWidth;
+//   @h: @MyDivHight;
+//   background-color: @MyMainColor;
+// }
+
+body {
+  background-color: darkseagreen;
+}
+.box1 {
+  background-color: darksalmon;
+  //为box1的后代box2设置样式
+  .box2 {
+    background-color: darkcyan;
+    .box4 {
+      background-color: darkslateblue;
+    }
+  }
+  .box3 {
+    background-color: darkred;
+  }
+}
+
+// 存储像素
+@a:100px;
+// 存储颜色
+@b:red;
+// 存储类名
+@c:box6;
+.box5 {
+// 可以直接使用的变量，直接@变量名进行引用
+    width: @a; 
+    color:@b;
+}
+// 类名变量，或者使用一部分值之时的引用：@{变量名}
+.@{c}{
+    width: @a;
+    background-image: url("@{c}/1.jpg");
+}
