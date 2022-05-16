@@ -1,0 +1,42 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-16 14:47:41
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-16 14:51:04
+ * @FilePath: \VSProject\js\老杜\016-关于JS代码的执行顺序.html
+ * @Description: JS代码的执行顺序
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JS代码的执行顺序</title>
+  </head>
+  <!-- load事件什么时候发生？页面全部元素加载完毕之后才会发生。-->
+  <body onload="ready()">
+    <script type="text/javascript">
+      /*
+			// 第一步:根据id获取节点对象
+			var btn = document.getElementById("btn"); // 返回null(因为代码执行到此处的时候id="btn"的元素还没有加载到内存)
+			
+			// 第二步:给节点对象绑定事件
+			btn.onclick = function(){
+				alert("hello js");
+			}
+			*/
+
+      function ready() {
+        var btn = document.getElementById('btn')
+        btn.onclick = function () {
+          alert('hello js')
+        }
+      }
+    </script>
+
+    <input type="button" value="hello" id="btn" />
+  </body>
+</html>

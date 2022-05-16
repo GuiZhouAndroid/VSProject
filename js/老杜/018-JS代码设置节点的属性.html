@@ -1,0 +1,34 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-16 14:47:41
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-16 14:51:17
+ * @FilePath: \VSProject\js\老杜\018-JS代码设置节点的属性.html
+ * @Description: JS代码设置节点的属性
+ * @email：1210762604@qq.com
+ * @github：https://github.com/GuiZhouAndroid/VSProject
+ * @csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>JS代码设置节点的属性</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      window.onload = function () {
+        document.getElementById('btn').onclick = function () {
+          var mytext = document.getElementById('mytext')
+          // 一个节点对象中只要有的属性都可以"."
+          mytext.type = 'checkbox'
+        }
+      }
+    </script>
+
+    <input type="text" id="mytext" />
+
+    <input type="button" value="将文本框修改为复选框" id="btn" />
+  </body>
+</html>
