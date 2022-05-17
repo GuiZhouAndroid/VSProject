@@ -2,7 +2,7 @@
  * @Author: 张松
  * @Date: 2022-05-16 12:20:54
  * @LastEditors: ZSAndroid
- * @LastEditTime: 2022-05-16 12:27:45
+ * @LastEditTime: 2022-05-17 09:10:11
  * @FilePath: \VSProject\js\csdn\js函数内置arguments对象.js
  * @Description: arguments
  * @email：1210762604@qq.com
@@ -15,7 +15,11 @@
 // 方法调用时，可以得到所有传进来的参数
 // 你传多少，我就能拿到多少
 
-function fn() {
+// function fn() {
+//   console.log(arguments)
+// }
+
+fn = function () {
   console.log(arguments)
 }
-fn(1, 2, 3, 4) //[Arguments] { '0': 1, '1': 2, '2': 3, '3': 4 }
+//[Arguments] { '0': 1, '1': 2, '2': 3, '3': 4 }
