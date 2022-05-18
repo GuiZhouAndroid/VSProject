@@ -18,13 +18,18 @@
   </head>
   <body>
     <script type="text/javascript">
-      window.onload = function () {
+      // window.onload = function () {
+      //   document.getElementById('btn').onclick = function () {
+      //     var mytext = document.getElementById('mytext')
+      //     // 一个节点对象中只要有的属性都可以"."
+      //     mytext.type = 'checkbox'
+      //   }
+      // }
+      onload = function () {
         document.getElementById('btn').onclick = function () {
-          var mytext = document.getElementById('mytext')
-          // 一个节点对象中只要有的属性都可以"."
-          mytext.type = 'checkbox'
-        }
-      }
+          document.getElementById('mytext').type = 'checkbox';
+        };
+      };
     </script>
 
     <input type="text" id="mytext" />

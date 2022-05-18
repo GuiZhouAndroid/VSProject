@@ -2,7 +2,7 @@
  * @Author: 张松
  * @Date: 2022-05-16 14:47:41
  * @LastEditors: ZSAndroid
- * @LastEditTime: 2022-05-16 14:50:15
+ * @LastEditTime: 2022-05-18 10:51:06
  * @FilePath: \VSProject\js\老杜\013-Object类型.html
  * @Description: Object类型
  * @email：1210762604@qq.com
@@ -47,22 +47,22 @@
       function sayHello() {}
 
       // 把sayHello当做一个普通的函数来调用.
-      sayHello()
+      sayHello();
 
       // 这种方式就表示把sayHello当做一个类来创建对象.
-      var obj = new sayHello() // obj是一个引用,保存内存地址指向堆中的对象.
+      var obj = new sayHello(); // obj是一个引用,保存内存地址指向堆中的对象.
 
       // 定义一个学生类
       function Student() {
-        alert('Student.....')
+        alert('Student.....');
       }
 
       // 当做普通函数调用
-      Student()
+      Student();
 
       // 当做类来创建对象
-      var stu = new Student()
-      alert(stu) // [object Object]
+      var stu = new Student();
+      alert(stu); // [object Object]
 
       // JS中的类的定义,同时又是一个构造函数的定义
       // 在JS中类的定义和构造函数的定义是放在一起来完成的.
@@ -70,27 +70,31 @@
         // a b c是形参,属于局部变量.
         // 声明属性 (this表示当前对象)
         // User类中有三个属性:sno/sname/sage
-        this.sno = a
-        this.sname = b
-        this.sage = c
+        this.sno = a;
+        this.sname = b;
+        this.sage = c;
+        console.log(
+          '🚀 ~ file: 013-Object类型.html ~ line 76 ~ User ~ this',
+          this
+        );
       }
 
       // 创建对象
-      var u1 = new User(111, 'zhangsan', 30)
+      var u1 = new User(111, 'zhangsan', 30);
       // 访问对象的属性
-      alert(u1.sno)
-      alert(u1.sname)
-      alert(u1.sage)
+      alert(u1.sno);
+      alert(u1.sname);
+      alert(u1.sage);
 
-      var u2 = new User(222, 'jackson', 55)
-      alert(u2.sno)
-      alert(u2.sname)
-      alert(u2.sage)
+      var u2 = new User(222, 'jackson', 55);
+      alert(u2.sno);
+      alert(u2.sname);
+      alert(u2.sage);
 
       // 访问一个对象的属性,还可以使用这种语法
-      alert(u2['sno'])
-      alert(u2['sname'])
-      alert(u2['sage'])
+      alert(u2['sno']);
+      alert(u2['sname']);
+      alert(u2['sage']);
 
       // 定义类的另一种语法
       /*
@@ -102,43 +106,43 @@
 
       Emp = function (ename, sal) {
         // 属性
-        this.ename = ename
-        this.sal = sal
-      }
+        this.ename = ename;
+        this.sal = sal;
+      };
 
-      var e1 = new Emp('SMITH', 800)
-      alert(e1['ename'] + ',' + e1.sal)
+      var e1 = new Emp('SMITH', 800);
+      alert(e1['ename'] + ',' + e1.sal);
 
       Product = function (pno, pname, price) {
         // 属性
-        this.pno = pno
-        this.pname = pname
-        this.price = price
+        this.pno = pno;
+        this.pname = pname;
+        this.price = price;
         // 函数
         this.getPrice = function () {
-          return this.price
-        }
-      }
+          return this.price;
+        };
+      };
 
-      var xigua = new Product(111, '西瓜', 4.0)
-      var pri = xigua.getPrice()
-      alert(pri) // 4.0
+      var xigua = new Product(111, '西瓜', 4.0);
+      var pri = xigua.getPrice();
+      alert(pri); // 4.0
 
       // 可以通过prototype这个属性来给类动态扩展属性以及函数
       Product.prototype.getPname = function () {
-        return this.pname
-      }
+        return this.pname;
+      };
 
       // 调用后期扩展的getPname()函数
-      var pname = xigua.getPname()
-      alert(pname)
+      var pname = xigua.getPname();
+      alert(pname);
 
       // 给String扩展一个函数
       String.prototype.suiyi = function () {
-        alert('这是给String类型扩展的一个函数，叫做suiyi')
-      }
+        alert('这是给String类型扩展的一个函数，叫做suiyi');
+      };
 
-      'abc'.suiyi()
+      'abc'.suiyi();
     </script>
   </body>
 </html>

@@ -2,7 +2,7 @@
  * @Author: 张松
  * @Date: 2022-05-16 14:47:41
  * @LastEditors: ZSAndroid
- * @LastEditTime: 2022-05-16 14:51:30
+ * @LastEditTime: 2022-05-18 15:54:47
  * @FilePath: \VSProject\js\老杜\020-JS的void运算符.html
  * @Description: JS的void运算符
  * @email：1210762604@qq.com
@@ -73,6 +73,13 @@
     <br />
 
     <a href="javascript:void(100)" onclick="window.alert('test code')">
+      既保留住超链接的样式，同时用户点击该超链接的时候执行一段JS代码，但页面还不能跳转。
+    </a>
+
+    <br />
+
+    <!--return false会导致 超链接或表单提交触发事件失效，自热不执行JS代码 -->
+    <a href="" onclick="return false">
       既保留住超链接的样式，同时用户点击该超链接的时候执行一段JS代码，但页面还不能跳转。
     </a>
 
