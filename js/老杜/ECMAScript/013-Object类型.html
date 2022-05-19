@@ -2,8 +2,8 @@
  * @Author: 张松
  * @Date: 2022-05-16 14:47:41
  * @LastEditors: ZSAndroid
- * @LastEditTime: 2022-05-18 10:51:06
- * @FilePath: \VSProject\js\老杜\013-Object类型.html
+ * @LastEditTime: 2022-05-19 10:31:09
+ * @FilePath: \VSProject\js\老杜\ECMAScript\013-Object类型.html
  * @Description: Object类型
  * @email：1210762604@qq.com
  * @github：https://github.com/GuiZhouAndroid/VSProject
@@ -73,10 +73,6 @@
         this.sno = a;
         this.sname = b;
         this.sage = c;
-        console.log(
-          '🚀 ~ file: 013-Object类型.html ~ line 76 ~ User ~ this',
-          this
-        );
       }
 
       // 创建对象
@@ -97,13 +93,6 @@
       alert(u2['sage']);
 
       // 定义类的另一种语法
-      /*
-		   Emp = function(a, b){
-			   this.ename = a;
-			   this.sal = b;
-		   }
-		   */
-
       Emp = function (ename, sal) {
         // 属性
         this.ename = ename;
@@ -143,6 +132,7 @@
       };
 
       'abc'.suiyi();
+      new String('abc').suiyi();
     </script>
   </body>
 </html>

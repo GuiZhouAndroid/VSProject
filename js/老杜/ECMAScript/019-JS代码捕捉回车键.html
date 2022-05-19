@@ -2,8 +2,8 @@
  * @Author: 张松
  * @Date: 2022-05-16 14:47:41
  * @LastEditors: ZSAndroid
- * @LastEditTime: 2022-05-16 14:51:24
- * @FilePath: \VSProject\js\老杜\019-JS代码捕捉回车键.html
+ * @LastEditTime: 2022-05-19 10:46:19
+ * @FilePath: \VSProject\js\老杜\ECMAScript\019-JS代码捕捉回车键.html
  * @Description: JS代码捕捉回车键
  * @email：1210762604@qq.com
  * @github：https://github.com/GuiZhouAndroid/VSProject
@@ -19,7 +19,7 @@
   <body>
     <script type="text/javascript">
       window.onload = function () {
-        var usernameElt = document.getElementById('username')
+        var usernameElt = document.getElementById('username');
         // 回车键的键值是13
         // ESC键的键值是27
         /*
@@ -39,10 +39,10 @@
 			   */
         usernameElt.onkeydown = function (event) {
           if (event.keyCode === 13) {
-            alert('正在进行验证....')
+            alert('正在进行验证....');
           }
-        }
-      }
+        };
+      };
 
       // 张三程序员写了这样一个函数
       /*
