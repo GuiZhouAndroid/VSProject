@@ -1,0 +1,182 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-19 14:11:16
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-19 17:36:10
+ * @FilePath: \VSProject\js\老杜\我的表单验证.html
+ * @Description: 我的表单验证
+ * @Email：1210762604@qq.com
+ * @Github：https://github.com/GuiZhouAndroid/VSProject
+ * @Csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的表单验证</title>
+  </head>
+  <!--
+    表单验证：
+    （1）用户名不能为空
+    （2）用户名必须在6-14位之间
+    （3）用户名只能有数字和字母组成，不能含有其它符号（正则表达式）
+    （4）密码和确认密码一致，邮箱地址合法。
+    （5）统一失去焦点验证
+    （6）错误提示信息统一在span标签中提示，并且要求字体12号，红色。
+    （7）文本框再次获得焦点后，清空错误提示信息，如果文本框中数据不合法要求清空文本框的value
+    （8）最终表单中所有项均合法方可提交
+  -->
+  <body>
+    <script type="text/javascript">
+      //浏览器的DOM加载完成
+      window.onload = function () {
+        // 一、实现用户名
+        var usernameSpanError = document.getElementById('usernameSpan'); //获取用户名的错误提示Span节点对象（外部调用，全局变量）
+        var usernameElt = document.getElementById('usernameId'); //获取用户名节点对象（外部调用，全局变量）
+        //（1）失去焦点验证用户名格式
+        usernameElt.onblur = function () {
+          var usernameValue = usernameElt.value; //获取用户名
+          usernameValue.trim; //处理用户名去空
+          //用户名判空
+          if (usernameValue === '') {
+            usernameSpanError.innerText = '用户名不能为空';
+          } else {
+            //用户名判长度
+            if (usernameValue.length < 6 || usernameValue.length > 14) {
+              usernameSpanError.innerText = '用户名必须在6-14位之间';
+            } else {
+              var userNameRegex = /^[A-Za-z0-9]+$/; //定义用户名正则表达式
+              //判断正则合法性
+              if (!userNameRegex.test(usernameValue)) {
+                usernameSpanError.innerText =
+                  '用户名只能有数字和字母组成，不能含有其它符号';
+              } else {
+                // 用户名合法
+              }
+            }
+          }
+        };
+        //（2）获取焦点清空不合法用户名和span提示错误的红字
+        usernameElt.onfocus = function () {
+          if (usernameSpanError.innerText != '') {
+            usernameElt.value = '';
+          }
+          usernameSpanError.innerText = '';
+        };
+
+        //二、实现密码校验
+        var pwdVerifySpanError = document.getElementById('pwdVerifySpan'); //获取密码的错误提示Span节点对象（外部调用，全局变量）
+        var userVerifyPwdElt = document.getElementById('pwdVerifyId'); //获取确认密码节点对象（外部调用，全局变量）
+        //（1）失去焦点校验匹配两次密码一致性，密码不需要去空
+        userVerifyPwdElt.onblur = function () {
+          //获取密码节点对象（不涉及外部调用，因此变量定义为局部，节约内存占用）
+          var userPwdElt = document.getElementById('passwordId');
+          var userPwdValue = userPwdElt.value; //获取密码
+          var userVerifyPwdValue = userVerifyPwdElt.value; //获取确认密码
+          //两次密码不一致时
+          if (userPwdValue != userVerifyPwdValue) {
+            pwdVerifySpanError.innerText = '两次密码输入不一致';
+          } else {
+            //密码一致
+          }
+        };
+        //（2）获取焦点清空不合法的密码和span提示错误的红字
+        userVerifyPwdElt.onfocus = function () {
+          if (pwdVerifySpanError.innerText != '') {
+            userVerifyPwdElt.value = '';
+          }
+          pwdVerifySpanError.innerText = '';
+        };
+
+        //三、实现邮箱校验
+        var emailSpanError = document.getElementById('emailSpan'); //获取邮箱的错误提示Span对象（外部调用，全局变量）
+        var emailElt = document.getElementById('emailId'); //获取邮箱节点对象（外部调用，全局变量）
+        //（1）失去焦点验证邮箱格式
+        emailElt.onblur = function () {
+          var emailValue = emailElt.value; //获取去空的邮箱
+          var emailRegex = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/; //定义邮箱正则表达式
+          //判断正则合法性
+          if (!emailRegex.test(emailValue)) {
+            emailSpanError.innerText = '邮箱地址不合法';
+          } else {
+            //邮箱合法
+          }
+        };
+        //（2）获取焦点清空不合法的邮箱和span提示错误的红字
+        emailElt.onfocus = function () {
+          if (emailSpanError.innerText != '') {
+            emailElt.value = '';
+          }
+          emailSpanError.innerText = '';
+        };
+
+        //四、绑定表单submit提交按钮自定义手动单击事件
+        document.getElementById('submitId').onclick = function () {
+          //（1）提交按钮触发表单全部的焦点事件，
+          //注意：先focus获取焦点校验输入合法性，紧接blur失去焦点执行业务操作，若合法则通过，不合法再清空与提示，
+          //触发用户名
+          usernameElt.focus();
+          usernameElt.blur();
+          //触发密码
+          userVerifyPwdElt.focus();
+          userVerifyPwdElt.blur();
+          //触发邮箱
+          emailElt.focus();
+          emailElt.blur();
+          //（2）依据提示的Span文本值同时为空，判断表单数据的合法性
+          if (
+            usernameSpanError.innerText == '' &&
+            pwdVerifySpanError.innerText == '' &&
+            emailSpanError.innerText == ''
+          ) {
+            //JS程序自上而下解释，程序执行到此，说明一切操作准备就绪，提交表单到URL，传给后端处理即可
+            var userFromElt = document.getElementById('userFrom');
+            userFromElt.action = 'https://localhost:8080/oa/user/login';
+            //URL：https://localhost:8080/oa/user/login?username=ZSAndroid&password=root&pwdVerify=root&email=1210762604%40qq.com
+            userFromElt.submit();
+          }
+        };
+      };
+    </script>
+
+    <form id="userFrom" method="get">
+      <table>
+        <tr>
+          <td>用户名</td>
+          <td colspan="2">
+            <input type="text" name="username" id="usernameId" />
+            <span id="usernameSpan" style="font-size: 12px; color: red"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>密码</td>
+          <td colspan="3">
+            <input type="password" name="password" id="passwordId" />
+          </td>
+        </tr>
+        <tr>
+          <td>确认密码</td>
+          <td colspan="2">
+            <input type="password" name="pwdVerify" id="pwdVerifyId" />
+            <span id="pwdVerifySpan" style="font-size: 12px; color: red"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>邮箱</td>
+          <td colspan="2">
+            <input type="text" name="email" id="emailId" />
+            <span id="emailSpan" style="font-size: 12px; color: red"></span>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" colspan="3">
+            <input type="button" value="提交" id="submitId" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
