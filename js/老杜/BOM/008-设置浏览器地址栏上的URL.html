@@ -1,29 +1,43 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-18 16:46:56
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-20 17:18:31
+ * @FilePath: \VSProject\js\老杜\BOM\008-设置浏览器地址栏上的URL.html
+ * @Description: 
+ * @Email：1210762604@qq.com
+ * @Github：https://github.com/GuiZhouAndroid/VSProject
+ * @Csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>设置浏览器地址栏上的URL</title>
-	</head>
-	<body>
-		
-		<script type="text/javascript">
-			function goBaidu(){
-				//var locationObj = window.location;
-				//locationObj.href = "http://www.baidu.com";
-				
-				// window.location.href = "http://www.jd.com";
-				// window.location = "http://www.126.com";
-				
-				//document.location.href = "http://www.sina.com.cn";
-				document.location = "http://www.tmall.com";
-			}
-		</script>
-		
-		<input type="button" value="新浪" onclick="goBaidu();"/>
-		
-		<input type="button" value="baidu" onclick="window.open('http://www.baidu.com');" />
-		
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>设置浏览器地址栏上的URL</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function goBaidu() {
+        //var locationObj = window.location;
+        //locationObj.href = "http://www.baidu.com";
+
+        // window.location.href = "http://www.jd.com";
+        // window.location = "http://www.126.com";
+
+        //document.location.href = "http://www.sina.com.cn";
+        document.location = 'http://www.tmall.com';
+      }
+    </script>
+
+    <input type="button" value="新浪" onclick="goBaidu();" />
+
+    <input
+      type="button"
+      value="baidu"
+      onclick="window.open('http://www.baidu.com');"
+    />
+  </body>
 </html>
 
 <!--
