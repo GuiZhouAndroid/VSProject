@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <div>
+      <p>
+        请选择你的爱好
+        <input type="checkbox" name="" id="toggleCheck" /> 全选/全不选
+      </p>
+      <input type="checkbox" name="hobby" value="游泳" /> 游泳
+      <input type="checkbox" name="hobby" value="羽毛球" /> 羽毛球
+      <input type="checkbox" name="hobby" value="台球" /> 台球
+      <input type="checkbox" name="hobby" value="乒乓球" /> 乒乓球
+      <input type="checkbox" name="hobby" value="音乐" /> 音乐
+
+      <div>
+        <button id="checkAll">全选</button>
+        <button id="reCheck">反选</button>
+        <button id="checkNotAll">全不选</button>
+        <button id="sub">提交</button>
+      </div>
+    </div>
+    <script>
+      /**
+       *  对于属性名和属性值一致的, selected = selected
+       * 							checked = checked
+       * 			checked= true   选中
+       * 			checked = false 不选中
+       *
+       * 			selected = true 选中
+       * 			selected = false 不选中
+       *
+       */
+      // 如果是id的话,可以直接使用id名,就能得到元素
+      // var checkAll = document.getElementById('checkAll');
+      // console.log(checkAll);
+      /**
+       *  全选
+       */
+      //通过name 获取所有的input:checkbox的爱好复选框
+      var checkBoxs = document.getElementsByName('hobby'); //List
+      checkAll.onclick = function () {
+        //就是让所有的 hobby 复选框被选中
+        checkBoxs.forEach(function (item, index) {
+          item.checked = true;
+        });
+      };
+      /**
+       *  反选
+       */
+      reCheck.onclick = function () {
+        checkBoxs.forEach(function (item, index) {
+          item.checked = !item.checked;
+        });
+      };
+      /**
+       *  全不选
+       */
+      checkNotAll.onclick = function () {
+        checkBoxs.forEach(function (item, index) {
+          item.checked = false;
+        });
+      };
+      /**
+       * 提交
+       */
+      sub.onclick = function () {
+        checkBoxs.forEach(function (item, index) {
+          if (item.checked) {
+            alert(item.value);
+          }
+        });
+      };
+
+      /**
+       *  toggleCheck 来回切换
+       *
+       */
+      toggleCheck.onclick = function () {
+        // console.log(this.checked);
+        checkBoxs.forEach(function (item, index) {
+          item.checked = toggleCheck.checked;
+        });
+      };
+
+      checkBoxs.forEach(function (item, index) {
+        item.onclick = function () {
+          var count = 0; // 计数器
+          checkBoxs.forEach(function (it, i) {
+            if (it.checked) {
+              count++;
+            }
+          });
+          if (count === checkBoxs.length) {
+            toggleCheck.checked = true;
+          } else {
+            toggleCheck.checked = false;
+          }
+        };
+      });
+
+      for (var i = 0; i < checkBoxs.length; i++) {
+        checkBoxs[i];
+      }
+    </script>
+  </body>
+</html>
