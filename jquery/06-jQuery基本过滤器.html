@@ -1,0 +1,92 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-31 16:42:54
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-31 17:19:32
+ * @FilePath: \VSProject\jquery\06-jQuery基本过滤器.html
+ * @Description: jQuery基本过滤器
+ * @Email：1210762604@qq.com
+ * @Github：https://github.com/GuiZhouAndroid/VSProject
+ * @Csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery基本过滤器</title>
+    <!-- # 定义CSS内部样式 -->
+    <style type="text/css">
+      div {
+        background: gray;
+      }
+    </style>
+    <!-- # 引入JQuery脚本库 -->
+    <script type="text/javascript" src="lib/js/jquery-3.6.0.js"></script>
+    <!--
+      # 基本过滤器：是一个字符串，根据条件筛选dom对象。注意：不能单独使用，必须和选择器一起使用
+      # 语法(1)：$("选择器:first") : 第一个dom对象
+      # 语法(2)：$("选择器:last"): 数组中的最后一个dom对象
+      # 语法(3)：$("选择器:eq(数组的下标)") ：获取指定下标的dom对象
+      # 语法(4)：$("选择器:lt(下标)") ： 获取小于下标的所有dom对象
+      # 语法(5)：$("选择器:gt(下标)") ： 获取大于下标的所有dom对象
+    -->
+    <script type="text/javascript">
+      $(function () {
+        //1.第一个div
+        $('#btn1').click(function () {
+          //筛选出JQuery数组中下标为0的元素<===>第1个dom对象，并设置CSS样式背景色为红色
+          $('div:first').css('background', 'red');
+        });
+
+        //2.第二个div
+        $('#btn2').click(function () {
+          //筛选出JQuery数组中下标为1的元素<===>第2个dom对象，并设置CSS样式背景色为粉色
+          $('div:last').css('background', 'pink');
+        });
+
+        //3.第三个div
+        $('#btn3').click(function () {
+          //筛选出JQuery数组中下标为2的元素<===>第3个dom对象，并设置CSS样式背景色为绿色
+          $('div:eq(3)').css('background', 'green');
+        });
+
+        //4.第四个div
+        $('#btn4').click(function () {
+          //筛选出JQuery数组中下标小于3的全部元素<===>索引小于3的dom对象，并设置CSS样式背景色为蓝色
+          $('div:lt(3)').css('background', 'blue');
+        });
+        //5.第五个div
+        $('#btn5').click(function () {
+          //筛选出JQuery数组中下标大于3的全部元素<===>索引大于3的dom对象，并设置CSS样式背景色为黄色
+          $('div:gt(3)').css('background', 'yellow');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt" />
+    <div id="one">我是div-0</div>
+    <div id="two">我是div-1</div>
+    <div>
+      我是div-2
+      <div>我是div-3</div>
+      <div>我是div-4</div>
+    </div>
+    <div>我是div-5</div>
+    <br />
+    <span>我是span</span>
+    <br />
+    <input type="button" value="获取第一个div" id="btn1" />
+    <br />
+    <input type="button" value="获取最后一个div" id="btn2" />
+    <br />
+    <input type="button" value="获取下标等于3的div" id="btn3" />
+    <br />
+    <input type="button" value="获取下标小于3的div" id="btn4" />
+    <br />
+    <input type="button" value="获取下标大于3的div" id="btn5" />
+  </body>
+</html>

@@ -2,7 +2,7 @@
  * @Author: 张松
  * @Date: 2022-05-31 15:42:19
  * @LastEditors: ZSAndroid
- * @LastEditTime: 2022-05-31 16:35:23
+ * @LastEditTime: 2022-05-31 17:06:34
  * @FilePath: \VSProject\jquery\05-jQuery表单选择器.html
  * @Description: jQuery表单选择器
  * @Email：1210762604@qq.com
@@ -18,15 +18,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>jQuery表单选择器</title>
     <!-- # 引入JQuery脚本库 -->
-    <script type="text/javascript" src="lib/jquery-3.6.0.js"></script>
-    <!-- 
+    <script type="text/javascript" src="lib/js/jquery-3.6.0.js"></script>
+    <!--
       # 表达选择器：使用<input>标签的type属性值，定位dom对象的方式 
       # 语法：$(":type属性值")
       # 例如(1)：$(":text")————>选择的是当前html中全部的单行文本框
       # 例如(2)：$(":button")————>选择的是当前html中全部的单击按钮
     -->
     <script type="text/javascript">
-      //JQuery的准备函数===$(document).ready(function(){})===onload = function(){}
+      //JQuery的准备函数===$(document).ready(function(){})===window.onload = function(){}———>dom对象已在运行内存中创建
       $(function () {
         //获取id为mybtn1的dom对象并设置单击事件
         //1.读取文本框text的value值

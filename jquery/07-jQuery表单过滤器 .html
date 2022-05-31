@@ -1,0 +1,82 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-31 17:21:52
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-31 17:58:53
+ * @FilePath: \VSProject\jquery\07-jQuery表单过滤器 .html
+ * @Description: jQuery表单过滤器
+ * @Email：1210762604@qq.com
+ * @Github：https://github.com/GuiZhouAndroid/VSProject
+ * @Csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery表单过滤器</title>
+    <!-- # 引入JQuery脚本库 -->
+    <script type="text/javascript" src="lib/js/jquery-3.6.0.js"></script>
+    <!--
+      # 表单属性过滤器：根据表单中dom对象的状态情况，定位dom对象
+      # 启用状态：enabled
+      # 未启用状态：disabled
+      # 选择状态；checked ————> 例如radio， checkbox
+    -->
+    <script type="text/javascript">
+      $(function () {
+        // 1.筛选出可用的文本框
+        $('#btn1').click(function () {
+          $(':text:enabled').val('我是筛选出可用的文本框');
+        });
+
+        // 2.筛选出已选中的复选框
+        $('#btn2').click(function () {
+          let $checkbox = $(':checkbox:checked'); //是一个JQuery数组对象，元素是已选中的复选框dom对象
+          //循环遍历数组中，是dom对象，转为JQuery对象，再使用val()函数取值
+          for (let index = 0; index < $checkbox.length; index++) {
+            const jsObjElement = $checkbox[index]; //已选中的复选框dom对象
+            const $jqObj = $(jsObjElement); //转为jQuery对象
+            alert($jqObj.val());
+            //简写成一行代码
+            //alert($($checkbox[index]).val());
+          }
+        });
+        // 3.筛选出选中下拉列表框方式一
+        $('#btn3').click(function () {
+          let $select = $('select>option:selected'); //已选中的下拉列表框JQuery对象
+          alert($select.val());
+        });
+        //  筛选出选中下拉列表框方式二
+        // $('#btn3').click(function () {
+        //   let $select = $('#yuyan>option:selected'); //已选中的下拉列表框JQuery对象
+        //   alert($select.val());
+        // });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt1" value="text1" /><br />
+    <input type="text" id="txt2" value="text2" disabled="true" /><br />
+    <input type="text" id="txt3" value="text3" /><br />
+    <input type="text" id="txt4" value="text4" disabled /><br />
+    <br />
+    <input type="checkbox" value="游泳" />游泳 <br />
+    <input type="checkbox" value="健身" checked />健身 <br />
+    <input type="checkbox" value="电子游戏" checked />电子游戏 <br />
+    <br />
+    <select id="yuyan">
+      <option value="java">java语言</option>
+      <option value="go" selected>go语言</option>
+      <option value="python">python语言</option>
+    </select>
+    <br />
+    <input type="button" value="设置可以的text的value是hello" id="btn1" />
+    <br />
+    <button id="btn2">显示选中的复选框的值</button>
+    <br />
+    <button id="btn3">显示选中下拉列表框的值</button>
+  </body>
+</html>
