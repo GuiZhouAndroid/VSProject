@@ -1,0 +1,79 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-31 14:42:01
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-31 15:25:28
+ * @FilePath: \VSProject\jquery\04-jQuery基本选择器.html
+ * @Description: 04-jQuery基本选择器
+ * @Email：1210762604@qq.com
+ * @Github：https://github.com/GuiZhouAndroid/VSProject
+ * @Csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- # 定义CSS内部样式 -->
+    <style type="text/css">
+      div {
+        background: gray;
+        width: 200px;
+        height: 100px;
+      }
+    </style>
+    <!-- # 引入JQuery脚本库 -->
+    <script type="text/javascript" src="lib/jquery-3.6.0.js"></script>
+    <!-- # 选择器一个字符串，用来定位dom对象的，就可以通过jquery的函数操作dom树 -->
+    <script type="text/javascript">
+      $(function () {
+        // 1.使用jquery中的《id选择器》
+        $('#mybtn1').click(function () {
+          $('#one').css('background', 'red'); // 改变css样式的函数
+        });
+        // 2.使用jquery中的《类选择器》
+        $('#mybtn2').click(function () {
+          $('.two').css('background', 'yellow'); // 改变css样式的函数
+        });
+        // 3.使用jquery中的《标签选择器》
+        $('#mybtn3').click(function () {
+          var $obj = $('div'); //数组有3个对象;
+          console.log($obj.length); //3
+          //jquery都是操作数组中的全部成员.因此设置全部div背景色
+          $obj.css('background', 'pink'); // 改变css样式的函数
+        });
+        // 4.使用jquery中的《所有选择器》
+        $('#mybtn4').click(function () {
+          $('*').css('background', 'green'); // 改变css样式的函数
+        });
+        // 5.使用jquery中的《组合选择器》
+        $('#mybtn5').click(function () {
+          //此例子是联合组用类选择器+标签选择器
+          $('.two,span').css('background', 'blue'); // 改变css样式的函数
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="one">我是one的div</div>
+    <br />
+    <div class="two">我是样式是two的div</div>
+    <br />
+    <div>我是没有id，class的div</div>
+    <br />
+    <span>我是span标签</span>
+    <br />
+    <input type="button" value="获取id是one的dom对象" id="mybtn1" />
+    <br />
+    <input type="button" value="使用class样式获取dom对象" id="mybtn2" />
+    <br />
+    <input type="button" value="使用标签选择器" id="mybtn3" />
+    <br />
+    <input type="button" value="所有选择器" id="mybtn4" />
+    <br />
+    <input type="button" value="组合选择器" id="mybtn5" />
+  </body>
+</html>
