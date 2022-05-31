@@ -1,0 +1,38 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-31 13:43:07
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-31 14:31:55
+ * @FilePath: \VSProject\jquery\jQuery对象转dom对象.html
+ * @Description: jQuery对象转dom对象
+ * @Email：1210762604@qq.com
+ * @Github：https://github.com/GuiZhouAndroid/VSProject
+ * @Csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery对象转dom对象</title>
+    <script type="text/javascript" src="lib//jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        //使用jquery的语法,获取页面中的dom对象
+        $('#mybtn').click(function () {
+          // let num = $('#mytxt')[0].value; // 从数组中获取下标是0的dom对象
+          let num = $('#mytxt').get(0).value; // 从数组中获取下标是0的dom对象
+          alert(num * num);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <input type="button" value="计算平方" id="mybtn" />
+      <input type="text" value="10" id="mytxt" />
+    </div>
+  </body>
+</html>
