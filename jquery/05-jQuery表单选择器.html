@@ -1,0 +1,81 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-31 15:42:19
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-31 16:35:23
+ * @FilePath: \VSProject\jquery\05-jQuery表单选择器.html
+ * @Description: jQuery表单选择器
+ * @Email：1210762604@qq.com
+ * @Github：https://github.com/GuiZhouAndroid/VSProject
+ * @Csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery表单选择器</title>
+    <!-- # 引入JQuery脚本库 -->
+    <script type="text/javascript" src="lib/jquery-3.6.0.js"></script>
+    <!-- 
+      # 表达选择器：使用<input>标签的type属性值，定位dom对象的方式 
+      # 语法：$(":type属性值")
+      # 例如(1)：$(":text")————>选择的是当前html中全部的单行文本框
+      # 例如(2)：$(":button")————>选择的是当前html中全部的单击按钮
+    -->
+    <script type="text/javascript">
+      //JQuery的准备函数===$(document).ready(function(){})===onload = function(){}
+      $(function () {
+        //获取id为mybtn1的dom对象并设置单击事件
+        //1.读取文本框text的value值
+        $('#mybtn1').click(function () {
+          alert($(':text').val());
+        });
+
+        //2.读取单选按钮radio的value值
+        $('#mybtn2').click(function () {
+          var $radio = $(':radio'); //JQuery数组对象
+          console.log('数组对象长度=' + $radio.length); //包含有man和woman两个dom对象
+          //循环遍历数组中两个dom对象，因是dom对象，就能调用其属性或函数，提取对应radio元素的value值
+          for (let index = 0; index < $radio.length; index++) {
+            //遍历得到的单个dom对象 <input type="radio" value="man">和<input type="radio" value="woman">
+            console.log($radio[index]);
+            const radioElement = $radio[index];
+            alert(radioElement.value); //dom对象的value值
+          }
+        });
+
+        //3.读取文本框text的value值
+        $('#mybtn3').click(function () {
+          var $checkbox = $(':checkbox'); //JQuery数组对象
+          //循环遍历数组中三个dom对象，因是dom对象，就能调用其属性或函数，提取对应checkbox元素的value值
+          for (let index = 0; index < $checkbox.length; index++) {
+            const jsObjElement = $checkbox[index]; //数据的dom对象
+            const $JqObj = $(jsObjElement); //转为jQuery对象，调用特有的val()函数获取多选框的value值
+            alert($JqObj.val());
+            //匿名简写成1行代码
+            //alert($($checkbox[index]).val());
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" value="我是text的文本值" /><br />
+    <br />
+    <input type="radio" value="man" /> 男 <br />
+    <input type="radio" value="woman" /> 女 <br />
+    <br />
+    <input type="checkbox" value="bike" /> 骑行 <br />
+    <input type="checkbox" value="football" /> 足球 <br />
+    <input type="checkbox" value="music" /> 音乐 <br />
+    <br />
+    <input type="button" value="读取text的值" id="mybtn1" />
+    <br />
+    <input type="button" value="读取radio的值" id="mybtn2" />
+    <br />
+    <input type="button" value="读取checkbox的值" id="mybtn3" />
+  </body>
+</html>
