@@ -1,0 +1,48 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-05-31 11:15:35
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-05-31 11:42:25
+ * @FilePath: \VSProject\jquery\dom对象转jQuery对象.html
+ * @Description: dom对象转jQuery对象
+ * @Email：1210762604@qq.com
+ * @Github：https://github.com/GuiZhouAndroid/VSProject
+ * @Csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dom对象转jQuery对象</title>
+    <script type="text/javascript" src="lib/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+      // 传统的点击事件
+      onload = function () {
+        oldObj = document.getElementById('myOldbtn'); //不声明var，即为全局变量
+        oldObj.onclick = function () {
+          alert(oldObj.value); //使用dom对象获取value值
+        };
+      };
+      //jQuery的点击事件
+      $(function () {
+        $('#myNewbtn').click(function () {
+          alert($(this).val()); //使用jQuery对象获取value值
+        });
+      });
+      //使用dom对象转jQuery对象
+      OldToNew = function () {
+        //通过$(dom对象)--->转换为jQuery对象，就能使用jQuery库中的封装的函数
+        //jQuery对象.var()等同于dom对象.value
+        alert($(oldObj).val());
+      };
+    </script>
+  </head>
+  <body>
+    <input type="button" value="我是传统JS的按钮" id="myOldbtn" />
+    <input type="button" value="我是JQuery的按钮" id="myNewbtn" />
+    <input type="button" value="JS转JQuery的对象按钮" onclick="OldToNew()" />
+  </body>
+</html>
