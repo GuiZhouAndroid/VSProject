@@ -1,0 +1,154 @@
+<!--
+ * @Author: 张松
+ * @Date: 2022-06-01 15:53:03
+ * @LastEditors: ZSAndroid
+ * @LastEditTime: 2022-06-01 16:56:29
+ * @FilePath: \VSProject\jquery\09-jQuery函数二.html
+ * @Description: jQuery函数二
+ * @Email：1210762604@qq.com
+ * @Github：https://github.com/GuiZhouAndroid/VSProject
+ * @Csdn：https://blog.csdn.net/qq_39038178
+ * @版权声明：by 2022年 ZSAndroid,保留所有权利.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery函数二</title>
+    <!-- # 定义CSS内部样式 -->
+    <style type="text/css">
+      div {
+        background: yellow;
+      }
+    </style>
+    <!-- # 引入JQuery脚本库 -->
+    <script type="text/javascript" src="lib/js/jquery-3.6.0.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        // 1.remove删除父对象和子对象
+        $('#btn1').click(function () {
+          //删除父(select)和子(option)中所有的dom对象
+          $('select').remove();
+        });
+
+        // 2.empty删子对象
+        $('#btn2').click(function () {
+          //删除子(option)中所有的dom对象
+          $('select').empty();
+          //等同于
+          //$('select>option').remove();
+        });
+
+        // 3.append增加dom对象
+        $('#btn3').click(function () {
+          $('#father').append("<input type='button' value='我是增加的按钮' />");
+          $('#father').append(
+            "<table style='border: 1px solid'><tr><td>第一列</td><td>第二列</td></tr></table>"
+          );
+        });
+
+        // 4.获取第一个dom的文本值
+        $('#btn4').click(function () {
+          //无参数html()函数，获取jQuery类型的dom数组中第一个dom对象的文本值(innerHTML)
+          alert($('span').html()); //我是mysql <b>数据库</b>
+        });
+
+        // 5.设置span的所有dom的文本值
+        $('#btn5').click(function () {
+          //有参数html()函数，设置数组中全部dom对象的文本值
+          $('span').html('我是新的<b>数据</b>'); //我是mysql <b>数据库</b>
+        });
+
+        //each()函数：对“数组、json、dom”循环处理。每个成员都会调用一次内部形参的处理函数。
+        //语法：$.each( 循环的内容， 处理函数 )————> $ == JQuery，".each()" == 静态方法
+
+        // 6.循环普通数组(非dom数组)
+        $('#btn6').click(function () {
+          let myArray = ['抽烟', '喝酒', '烫头'];
+          $.each(myArray, function (index, element) {
+            alert('数组索引=' + index + '————' + '数组元素=' + element);
+          });
+        });
+
+        // 7.循环json
+        $('#btn7').click(function () {
+          let myJson = { name: '张松', age: 20 };
+          $.each(myJson, function (key, value) {
+            alert('键=' + key + '————' + '值=' + value);
+          });
+        });
+
+        // 8.循环dom数组
+        $('#btn8').click(function () {
+          let textArray = $(':text'); //jQuery类型的dom数组
+          $.each(textArray, function (index, node) {
+            alert('数组索引=' + index + '————' + 'dom对象=' + node.value);
+          });
+        });
+
+        // 9.循环jquery对象 ==  jQuery类型的dom数组
+        $('#btn9').click(function () {
+          $(':text').each(function (index, node) {
+            alert('数组索引=' + index + '————' + 'dom对象=' + node.value);
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" value="刘备" />
+    <input type="text" value="关羽" />
+    <input type="text" value="张飞" />
+    <br />
+    <br />
+    <select>
+      <option value="老虎">老虎</option>
+      <option value="狮子">狮子</option>
+      <option value="豹子">豹子</option>
+    </select>
+    <br />
+    <br />
+    <select>
+      <option value="亚洲">亚洲</option>
+      <option value="欧洲">欧洲</option>
+      <option value="美洲">美洲</option>
+    </select>
+    <br />
+    <br />
+    <div id="father">我是第一个div</div>
+    <br />
+    <br />
+    <span>我是mysql <b>数据库</b></span>
+    <br />
+    <span>我是jdbc</span>
+    <br />
+    <br />
+    <input type="button" value="使用remove删除父和子对象" id="btn1" />
+    <br />
+    <br />
+    <input type="button" value="使用empty删子对象" id="btn2" />
+    <br />
+    <br />
+    <input type="button" value="使用append增加dom对象" id="btn3" />
+    <br />
+    <br />
+    <input type="button" value="获取第一个dom的文本值" id="btn4" />
+    <br />
+    <br />
+    <input type="button" value="设置span的所以dom的文本值" id="btn5" />
+    <br />
+    <br />
+    <input type="button" value="循环普通数组" id="btn6" />
+    <br />
+    <br />
+    <input type="button" value="循环json" id="btn7" />
+    <br />
+    <br />
+    <input type="button" value="循环dom数组" id="btn8" />
+    <br />
+    <br />
+    <input type="button" value="循环jquery对象" id="btn9" />
+  </body>
+</html>
